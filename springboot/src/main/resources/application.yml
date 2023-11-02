@@ -1,0 +1,29 @@
+spring:
+  messages:
+    encoding: UTF-8
+    basename: messages,errors
+  profiles:
+    active: local
+  datasource:
+    # url: jdbc:h2:tcp://localhost/~/data/auction;DB_CLOSE_DELAY=-1
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        default_batch_fetch_size: 1000
+        format_sql: true
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+
+logging:
+  level:
+    root: info
+    org.hibernate:
+      SQL: debug
+      type: trace
